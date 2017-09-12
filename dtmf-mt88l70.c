@@ -130,7 +130,7 @@ static int mt88l70_probe(struct platform_device *pdev)
 		ret = gpio_direction_input(gpio);
 		if (ret) {
 			dev_err(&pdev->dev, "failed to set input direction"
-						" for Q%d gpio, error %d\n", i, gpio);
+						" for Q%d gpio, error %d\n", i, ret);
 			return ret;
 		}
 		dtmf->gpios[i] = gpio;
