@@ -1,0 +1,54 @@
+dtmf-mt88l70 bindings
+
+Required Properties:
+
+- compatible:		Should be "microsemi,mt88l70"
+
+- std-gpios:		Gpio used as irq.
+			The gpio specifier for this property depends on the
+			gpio controller to which these StD-pin are connected.
+
+- q-gpios:		List of gpios used as bits.
+			The gpio specifier for this property depends on the
+			gpio controller to which these Q-pin are connected.
+
+- keypad,num-rows:	number of rows in the keymap. More information
+			can be found in input/matrix-keymap.txt.
+
+- keypad,num-columns:	number of rows in the keymap. More information
+			can be found in input/matrix-keymap.txt.
+
+- linux,keymap:		The definition can be found at
+			bindings/input/matrix-keymap.txt
+
+Example:
+
+	mt88l70 {
+		compatible = "microsemi,mt88l70";
+		std-gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
+		q-gpios = <&gpio4 21 GPIO_ACTIVE_HIGH
+			   &gpio4 22 GPIO_ACTIVE_HIGH
+			   &gpio4 23 GPIO_ACTIVE_HIGH
+			   &gpio4 24 GPIO_ACTIVE_HIGH>;
+
+		keypad,num-rows = <16>;
+		keypad,num-columns = <1>;
+		linux,keymap = <
+			MATRIX_KEY(0, 0, KEY_NUMERIC_D)
+			MATRIX_KEY(1, 0, KEY_NUMERIC_1)
+			MATRIX_KEY(2, 0, KEY_NUMERIC_2)
+			MATRIX_KEY(3, 0, KEY_NUMERIC_3)
+			MATRIX_KEY(4, 0, KEY_NUMERIC_4)
+			MATRIX_KEY(5, 0, KEY_NUMERIC_5)
+			MATRIX_KEY(6, 0, KEY_NUMERIC_6)
+			MATRIX_KEY(7, 0, KEY_NUMERIC_7)
+			MATRIX_KEY(8, 0, KEY_NUMERIC_8)
+			MATRIX_KEY(9, 0, KEY_NUMERIC_9)
+			MATRIX_KEY(10, 0, KEY_NUMERIC_0)
+			MATRIX_KEY(11, 0, KEY_NUMERIC_STAR)
+			MATRIX_KEY(12, 0, KEY_NUMERIC_POUND)
+			MATRIX_KEY(13, 0, KEY_NUMERIC_A)
+			MATRIX_KEY(14, 0, KEY_NUMERIC_B)
+			MATRIX_KEY(15, 0, KEY_NUMERIC_C)
+		>;
+	};
