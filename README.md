@@ -1,6 +1,6 @@
 # Microsemi MT88L70 driver
 
-This driver use MT88L70 chip's pins: **STD** and **Q1-Q4**
+This driver use MT88L70 chip's pins: **STD** and **Q1-Q4** for decode DTMF code from audio inputs and send as keycode via input device.
 
 **STD pin** - used IRQ when success decoded DTMF code from audio inputs
 
