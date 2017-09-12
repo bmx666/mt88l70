@@ -36,7 +36,7 @@ enum mt88l70_version {
  * @std_active_low:		for set irq trigger edge
  * @irq:				irq issued by device
  * @gpios:				gpios for states to keycode
- * @gpios_active_low:	for set irq trigger edge
+ * @gpios_active_low:	gpios active level
  * @keymap:				matrix scan code table for keycodes
  */
 struct mt88l70_dtmf {
