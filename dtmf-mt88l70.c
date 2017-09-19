@@ -30,14 +30,14 @@ enum mt88l70_version {
 
 /**
  * struct mt88l70_dtmf - platform specific dtmf data
- * @keymap_data:		matrix scan code table for keycodes
- * @dev:				pointer to device
- * @input:				pointer to input device object
- * @std_active_low:		for set irq trigger edge
- * @irq:				irq issued by device
- * @gpios:				gpios for states to keycode
+ * @keymap_data:	matrix scan code table for keycodes
+ * @dev:		pointer to device
+ * @input:		pointer to input device object
+ * @std_active_low:	for set irq trigger edge
+ * @irq:		irq issued by device
+ * @gpios:		gpios for states to keycode
  * @gpios_active_low:	gpios active level
- * @keymap:				matrix scan code table for keycodes
+ * @keymap:		matrix scan code table for keycodes
  */
 struct mt88l70_dtmf {
 	const struct matrix_keymap_data *keymap_data;
@@ -229,11 +229,11 @@ MODULE_DEVICE_TABLE(of, mt88l70_match);
 
 static struct platform_driver mt88l70_driver = {
 	.driver	= {
-		.name			= "mt88l70",
-		.owner			= THIS_MODULE,
+		.name		= "mt88l70",
+		.owner		= THIS_MODULE,
 		.of_match_table	= of_match_ptr(mt88l70_match),
 #ifdef CONFIG_PM
-		.pm				= &mt88l70_dev_pm_ops,
+		.pm		= &mt88l70_dev_pm_ops,
 #endif
 	},
 	.probe	= mt88l70_probe,
