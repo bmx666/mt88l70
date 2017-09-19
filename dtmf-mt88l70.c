@@ -56,10 +56,13 @@ static irqreturn_t mt88l70_irq(int irq, void *dev)
 	int i, val;
 	u8 code;
 
+	if (!dtmf)
+		return IRQ_HANDLED;
+
 	code = 0;
 	for (i = 0; i < MT88L70_GPIO_NUM; ++i) {
 		if (!gpio_is_valid(dtmf->gpios[i]))
-			continue;
+			return IRQ_HANDLED;
 		val = gpio_get_value(dtmf->gpios[i]);
 		val &= 1;
 		if (dtmf->gpios_active_low[i])
